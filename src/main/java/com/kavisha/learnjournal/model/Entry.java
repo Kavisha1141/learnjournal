@@ -20,7 +20,7 @@ public class Entry {
     private String content;
 //   private ArrayList<String> tags;
     private String type;
-    private boolean imp;
+    private boolean imp = false;
     private LocalDate date;
 
     public Entry() {
