@@ -36,6 +36,10 @@ public class Entry {
         date = LocalDate.now();
     }
 
+
+    /**
+     * RETURNS: The ID of the Entry (null if not saved yet).
+     */
     public Long getId() {
         return this.id;
     }

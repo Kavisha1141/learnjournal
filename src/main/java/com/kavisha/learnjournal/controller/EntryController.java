@@ -21,6 +21,7 @@ public class EntryController {
      * MODIFIES: Nothing.
      * RETURNS: List of all entries. Empty if none exist.
      */
+    @GetMapping
     public List<Entry> getAllEntries() {
         return entryRepository.findAll();
     }
