@@ -19,7 +19,9 @@ public class Entry {
     @Column(columnDefinition = "TEXT")
     private String content;
 //   private ArrayList<String> tags;
+
     private String type;
+
     private boolean imp = false;
     private LocalDate date;
 
@@ -74,6 +76,10 @@ public class Entry {
     // public void addTag(String tag) {
     //     this.tags.add(tag);
     // }
+
+    public boolean isImportant() {
+        return this.imp;
+    }
     
     public void markImportant() {
         this.imp = true;
