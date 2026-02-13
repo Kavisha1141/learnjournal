@@ -26,11 +26,23 @@ public class RelationshipController {
         this.entryRepository = entryRepository;
     }
 
+    // RETURNS: List of all relationships.
     @GetMapping
     public List<Relationship> getAll() {
         return relationshipRepository.findAll();
     }
 
+    /**
+     * REQUIRES:
+     * - sourceId and targetId must refer to existing Entries.
+     * - type must not be null.
+     *
+     * MODIFIES:
+     * - Saves a new Relationship in the database.
+     *
+     * RETURNS:
+     * - The saved Relationship with generated ID.
+     */
     @PostMapping
     public Relationship createRelationship(@RequestBody RelationshipRequest request) {
         // Convert IDs from request to Entry objects
@@ -43,6 +55,11 @@ public class RelationshipController {
         return relationshipRepository.save(relationship);
     }
 
+     /**
+     * REQUIRES: entryId must refer to an existing Entry.
+     * MODIFIES: Nothing.
+     * RETURNS: List of relationships where the Entry is the source.
+     */
     @GetMapping("/source/{entryId}")
     public List<Relationship> getBySource(@PathVariable Long entryId) {
         Entry source = entryRepository.findById(entryId).orElseThrow();
