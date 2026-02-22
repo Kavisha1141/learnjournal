@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import com.kavisha.learnjournal.model.Relationship;
 import com.kavisha.learnjournal.model.RelationshipRequest;
 import com.kavisha.learnjournal.model.RelationshipResponse;
-import com.service.RelationshipService;
+import com.kavisha.learnjournal.service.RelationshipService;
 
 @RestController
 @RequestMapping("/relationships")

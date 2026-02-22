@@ -1,13 +1,15 @@
-package com.service;
+package com.kavisha.learnjournal.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.kavisha.learnjournal.repository.EntryRepository;
 import com.kavisha.learnjournal.repository.RelationshipRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.kavisha.learnjournal.model.RelationshipRequest;
 import com.kavisha.learnjournal.model.Entry;
 import com.kavisha.learnjournal.model.Relationship;
@@ -26,6 +28,7 @@ public class RelationshipService {
         return relationshipRepository.findAll();
     }
 
+    @Transactional
     public Relationship createRelationship(RelationshipRequest request) {
         Entry source = entryRepository.findById(request.getSourceId())
             .orElseThrow(() -> new RuntimeException("Source Entry not found"));
